@@ -291,7 +291,8 @@ if __name__ == "__main__":
                     continue
                 if limit_to_year and not year_reached:
                     continue
-                data = add_deposit(data, timestamp, amount,
+                clarification = ""
+                data = add_deposit(data, timestamp, amount, clarification=clarification,
                                    description="Transfer from %s" % ops["from"])
             else:
                 if amount.symbol == symbol:
@@ -303,7 +304,8 @@ if __name__ == "__main__":
                     continue
                 if limit_to_year and not year_reached:
                     continue
-                data = add_withdrawal(data, timestamp, amount,
+                clarification = ""
+                data = add_withdrawal(data, timestamp, amount, clarification=clarification,
                                       description="Transfer to %s" % ops["to"])
     
         elif ops["type"] == "account_create_with_delegation":
